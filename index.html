@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CDGH Analytical Interface | BIKE Lab</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="shortcut icon" href="https://bike-csecu.com/logo.png" type="image/x-icon">
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <div class="flex justify-center bg-white shadow-sm">
+    <div class="flex w-full">
+      <div class="tab active flex-1 text-center py-2 cursor-pointer transition border-b-2 border-blue-600 text-blue-600 font-semibold"
+           data-target="analysis">
+        Multidimensional Analysis
+      </div>
+      <div class="tab flex-1 text-center py-2 cursor-pointer transition hover:text-blue-600 border-b-2 border-transparent"
+           data-target="map">
+        Map Visualization
+      </div>
+      <div class="tab flex-1 text-center py-2 cursor-pointer transition hover:text-blue-600 border-b-2 border-transparent"
+           data-target="graph">
+        Graphical Representations
+      </div>
+    </div>
+  </div>
+
+  <div class="content mx-auto mt-1">
+    <div id="analysis" class="iframe-container active w-full h-[100vh]">
+      <iframe class="w-full h-full" src="https://setl-olap-online.vercel.app/"></iframe>
+    </div>
+    <div id="map" class="iframe-container hidden w-full h-[100vh]">
+      <iframe class="w-full h-full" src="http://cdgh-geo.vercel.app/"></iframe>
+    </div>
+    <div id="graph" class="iframe-container hidden w-full h-[100vh]">
+      <iframe class="w-full h-full" src="https://cdgh.vercel.app"></iframe>
+    </div>
+  </div>
+
+  <script>
+    const tabs = document.querySelectorAll('.tab');
+    const containers = document.querySelectorAll('.iframe-container');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // Remove active styles
+        tabs.forEach(t => {
+          t.classList.remove('active', 'border-blue-600', 'text-blue-600', 'font-semibold');
+          t.classList.add('border-transparent');
+        });
+
+        // Hide all iframe containers
+        containers.forEach(c => c.classList.add('hidden'));
+
+        // Activate clicked tab and show its content
+        tab.classList.add('active', 'border-blue-600', 'text-blue-600', 'font-semibold');
+        tab.classList.remove('border-transparent');
+
+        const target = document.getElementById(tab.dataset.target);
+        target.classList.remove('hidden');
+        target.classList.add('block');
+      });
+    });
+  </script>
+
+</body>
+</html>
