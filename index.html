@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>CDGH Analytical Interface | BIKE Lab</title>
@@ -7,36 +8,47 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="shortcut icon" href="https://bike-csecu.com/logo.png" type="image/x-icon">
 </head>
+
 <body class="bg-gray-50 text-gray-800">
 
   <div class="flex justify-center bg-white shadow-sm">
     <div class="flex w-full">
-      <div class="tab active flex-1 text-center py-2 cursor-pointer transition border-b-2 border-blue-600 text-blue-600 font-semibold"
-           data-target="analysis">
+      <div
+        class="tab active flex-1 text-center py-2 cursor-pointer transition border-b-2 border-blue-600 text-blue-600 font-semibold"
+        data-target="analysis">
         Multidimensional Analysis
       </div>
-      <div class="tab flex-1 text-center py-2 cursor-pointer transition hover:text-blue-600 border-b-2 border-transparent"
-           data-target="map">
-        Map Visualization
+      <div
+        class="tab flex-1 text-center py-2 cursor-pointer transition hover:text-blue-600 border-b-2 border-transparent"
+        data-target="map">
+        Analysis through Map
       </div>
-      <div class="tab flex-1 text-center py-2 cursor-pointer transition hover:text-blue-600 border-b-2 border-transparent"
-           data-target="graph">
-        Graphical Representations
+      <div
+        class="tab flex-1 text-center py-2 cursor-pointer transition hover:text-blue-600 border-b-2 border-transparent"
+        data-target="graph">
+        Descriptive Analysis
       </div>
     </div>
   </div>
 
-  <div class="content mx-auto mt-1">
-    <div id="analysis" class="iframe-container active w-full h-[100vh]">
+  <div class="content mx-auto mt-1 h-[100vh]">
+    <div id="analysis" class="iframe-container active w-full h-full">
       <iframe class="w-full h-full" src="https://setl-olap-online.vercel.app/"></iframe>
     </div>
-    <div id="map" class="iframe-container hidden w-full h-[100vh]">
+    <div id="map" class="iframe-container hidden w-full h-full">
       <iframe class="w-full h-full" src="https://cdgh-geo.vercel.app/"></iframe>
     </div>
-    <div id="graph" class="iframe-container hidden w-full h-[100vh]">
+    <div id="graph" class="iframe-container hidden w-full h-full">
       <iframe class="w-full h-full" src="https://cdgh.vercel.app"></iframe>
     </div>
+    <footer class="flex items-center justify-center h-14 w-full bg-cyan-900 text-xl text-white">
+      © BIKE Lab 2024-2025 | Developed by
+      <a href="https://bike-csecu.com" class="ml-1 font-bold no-underline hover:underline text-white">BIKE Lab</a>
+    </footer>
   </div>
+
+
+
 
   <script>
     const tabs = document.querySelectorAll('.tab');
@@ -65,4 +77,5 @@
   </script>
 
 </body>
+
 </html>
